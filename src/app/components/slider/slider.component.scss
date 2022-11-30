@@ -4,14 +4,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 35rem;
+    height: 45rem;
     position: relative;
 
     .slide {
         position: absolute;
         width: 100%;
         display: flex;
-        height: 35rem;
+        height: 45rem;
 
         &-bg {
             position: relative;
@@ -19,13 +19,13 @@
             flex: 1 1 auto;
 
             &:after {
+                content: "";
                 position: absolute;
                 top: 0;
                 right: 0;
                 bottom: 0;
                 left: 0;
                 display: block;
-                content: "";
 
                 background-image: linear-gradient(
                     90deg,
@@ -57,6 +57,7 @@
 
                 .info {
                     display: flex;
+                    align-items: center;
                     > span {
                         &:not(:last-child):after {
                             content: "|";
@@ -81,8 +82,8 @@
             }
 
             .desc {
-                font-size: 1.2rem;
-                line-height: 1.6;
+                font-size: 1.6rem;
+                line-height: 1.5;
             }
         }
     }

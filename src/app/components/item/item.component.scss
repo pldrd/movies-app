@@ -6,13 +6,12 @@
     min-height: 325px;
     border-radius: 5px;
     background-color: $bgColorLight;
-    border: 1px solid $lightGray;
+    box-shadow: 0 0 0 1px rgb(70, 70, 70);
 
     &-image {
         img {
             width: 100%;
-            height: 275px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 5px;
         }
     }
