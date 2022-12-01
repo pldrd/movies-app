@@ -1,0 +1,39 @@
+<ng-container *ngIf="movie">
+    <slider [items]="[movie]" [isBanner]="true"></slider>
+
+    <p-tabView>
+        <p-tabPanel header="Overview">
+            <div class="grid">
+                <div class="col-12 md:col-3 lg:col-3">
+                    <img class="poster" [src]="imagesSizes.medium + movie.poster_path" [alt]="movie.title">
+                </div>
+
+                <div class="col-12 md:col-9 lg:col-9">
+
+                    <div class="div">
+                        <h2>{{movie.title}}</h2>
+                        <p>{{movie.release_date | date: "yyyy"}}</p>
+                        <pre> {{movie | json}}</pre>
+                    </div>
+                    <p class="tagline">{{movie.tagline}}
+                    <p>
+                    <p class="overview">{{movie.overview}}</p>
+                </div>
+
+            </div>
+
+        </p-tabPanel>
+        <p-tabPanel header="Details">
+            <pre style="font-size: 1.8rem;"> {{movie | json}}</pre>
+        </p-tabPanel>
+        <p-tabPanel header="Genres">
+            <div class="genre-wrapper">
+                <ng-container *ngFor="let genre of movie.genres">
+                    <p class="genre">{{genre.name}}</p>
+                </ng-container>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+
+
+</ng-container>
