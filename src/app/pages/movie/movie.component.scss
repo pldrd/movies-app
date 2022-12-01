@@ -1,8 +1,15 @@
 @import "../../../styles/colors";
 
 :host ::ng-deep {
+    .desc {
+        display: none;
+    }
+}
+
+:host ::ng-deep {
     .p-tabview-nav {
         justify-content: center;
+        font-size: 1.6rem;
 
         li {
             .p-tabview-nav-link {
@@ -22,12 +29,23 @@
     }
 }
 
+.grid {
+    display: flex;
+    align-items: center;
+}
 .poster {
     max-width: 100%;
+    border-radius: 4px;
+}
+
+.tagline,
+.overview,
+.genre {
+    font-size: 1.6rem;
 }
 
 .tagline {
-    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .overview {
@@ -38,4 +56,8 @@
 .genre-wrapper {
     display: flex;
     gap: 15px;
+}
+
+.details-wrapper {
+    font-size: 1.6rem;
 }

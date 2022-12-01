@@ -11,9 +11,14 @@
                 <div class="col-12 md:col-9 lg:col-9">
 
                     <div class="div">
-                        <h2>{{movie.title}}</h2>
-                        <p>{{movie.release_date | date: "yyyy"}}</p>
-                        <pre> {{movie | json}}</pre>
+                        <h2>{{movie.title}} ({{movie.release_date | date: "yyyy"}})</h2>
+
+                        <div class="genre-wrapper">
+                            <ng-container *ngFor="let genre of movie.genres">
+                                <p class="genre">{{genre.name}}</p>
+                            </ng-container>
+                        </div>
+
                     </div>
                     <p class="tagline">{{movie.tagline}}
                     <p>
@@ -24,14 +29,22 @@
 
         </p-tabPanel>
         <p-tabPanel header="Details">
-            <pre style="font-size: 1.8rem;"> {{movie | json}}</pre>
-        </p-tabPanel>
-        <p-tabPanel header="Genres">
-            <div class="genre-wrapper">
-                <ng-container *ngFor="let genre of movie.genres">
-                    <p class="genre">{{genre.name}}</p>
-                </ng-container>
+            <div class="details-wrapper">
+                <p>Budget: {{movie.budget | currency}}</p>
+                <p>Original Language: {{movie.original_language | uppercase}}</p>
+                <p>Popularity: {{movie.popularity}}</p>
+                <p>Release date: {{movie.release_date | date: 'dd/MM/yyyy'}}</p>
+                <p>Country: </p> <span *ngFor="let country of movie.production_countries">{{country.name}}</span>
+                <p>Runtime: {{movie.runtime}} min</p>
+                <p>Studios: </p> <span *ngFor="let company of movie.production_companies">{{company.name}}</span>
+                <p>Status: {{movie.status}}</p>
             </div>
+        </p-tabPanel>
+        <p-tabPanel header="Videos">
+            <pre>{{movieVideos | json}} </pre>
+        </p-tabPanel>
+        <p-tabPanel header="Photos">
+
         </p-tabPanel>
     </p-tabView>
 
