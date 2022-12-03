@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
     Movie,
     MovieDataTransferObject,
+    MovieImages,
     MovieVideoDataTransferObject,
 } from '../models/movie';
 import { switchMap } from 'rxjs/operators';
@@ -45,6 +46,12 @@ export class MoviesService {
                     return of(res.results);
                 })
             );
+    }
+
+    getMovieImages(id: string) {
+        return this.http.get<MovieImages>(
+            `${this.baseUrl}/movie/${id}/images?api_key=${this.apiKey}`
+        );
     }
 
     searchMovies(page: number) {

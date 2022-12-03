@@ -50,4 +50,13 @@ export interface MovieVideoDataTransferObject {
 export interface MovieVideo {
     site: string;
     key: string;
+    name: string;
+}
+
+export interface MovieImages {
+    backdrops: [
+        {
+            file_path: string;
+        }
+    ];
 }

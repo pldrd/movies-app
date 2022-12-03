@@ -1,0 +1,36 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+@Component({
+    selector: 'video-embed',
+    templateUrl: './video-embed.component.html',
+    styleUrls: ['./video-embed.component.scss'],
+})
+export class VideoEmbedComponent implements OnInit {
+    @Input() site: string = 'Youtube';
+    @Input() key: string | null = null;
+    @Input() name: string | null = null;
+
+    videoURL: SafeResourceUrl = '';
+
+    constructor(private sanitizer: DomSanitizer) {}
+
+    ngOnInit(): void {
+        switch (this.site) {
+            case 'YouTube':
+                this.videoURL = this.getSafeUrl(
+                    'https://www.youtube.com/embed/' + this.key
+                );
+                break;
+            case 'Vimeo':
+                this.videoURL = this.getSafeUrl(
+                    'https://www.vimeo.com/embed/' + this.key
+                );
+                break;
+        }
+    }
+
+    getSafeUrl(url: string) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+}
