@@ -60,3 +60,14 @@ export interface MovieImages {
         }
     ];
 }
+
+export interface MovieCredits {
+    cast: [
+        {
+            name: string;
+            character: string;
+            profile_path?: string;
+            known_for_department?: string;
+        }
+    ];
+}

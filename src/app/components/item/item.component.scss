@@ -7,6 +7,13 @@
     border-radius: 5px;
     background-color: $bgColorLight;
     box-shadow: 0 0 0 1px rgb(70, 70, 70);
+    opacity: 1;
+    transition: 300ms ease-in;
+
+    &:hover {
+        opacity: 0.85;
+        box-shadow: 0 0 0 2px rgb(70, 70, 70);
+    }
 
     &-image {
         img {

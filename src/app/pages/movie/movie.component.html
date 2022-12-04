@@ -63,7 +63,26 @@
             </div>
 
         </p-tabPanel>
-    </p-tabView>
+        <p-tabPanel header="Cast">
 
+            <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [showIndicators]="false" [numVisible]="5"
+                [circular]="true" [autoplayInterval]="5000">
+                <ng-template let-actor pTemplate="item">
+                    <div class="actors" *ngIf="actor.profile_path !== null">
+                        <div class="actor-profile">
+                            <img [src]="imagesSizes.medium + actor.profile_path" alt="{{actor.name}}">
+                        </div>
+                        <div class="casting-info">
+                            <p><span>{{actor.name}}</span> - {{actor.character}}</p>
+                        </div>
+
+                    </div>
+
+                </ng-template>
+            </p-carousel>
+
+        </p-tabPanel>
+
+    </p-tabView>
 
 </ng-container>
