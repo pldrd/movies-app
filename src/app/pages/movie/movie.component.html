@@ -65,8 +65,8 @@
         </p-tabPanel>
         <p-tabPanel header="Cast">
 
-            <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [showIndicators]="false" [numVisible]="5"
-                [circular]="true" [autoplayInterval]="5000">
+            <p-carousel *ngIf="movieCredits" [responsiveOptions]="responsiveOptions" [value]="movieCredits.cast"
+                [showIndicators]="false" [numVisible]="5" [circular]="true" [autoplayInterval]="5000">
                 <ng-template let-actor pTemplate="item">
                     <div class="actors" *ngIf="actor.profile_path !== null">
                         <div class="actor-profile">
